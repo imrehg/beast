@@ -1,12 +1,7 @@
 #!/bin/bash
 
-ROTATE=${ROTATE=0}
-
-if [ ! -c /dev/fb1 ]; then
-  modprobe spi-bcm2708
-  modprobe fbtft_device name=pitft verbose=0 rotate=${ROTATE}
-
-  sleep 1
-
-  mknod /dev/fb1 c $(cat /sys/class/graphics/fb1/dev | tr ':' ' ')
+if [ -c /dev/fb1 ]; then
+  rmmod fbtft_device | true
 fi
+
+modprobe fbtft_device name=pitft verbose=0 rotate=0
