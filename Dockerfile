@@ -1,4 +1,4 @@
-FROM resin/rpi-raspbian:jessie-20160511
+FROM resin/raspberrypi3-debian
 
 RUN apt-get update && apt-get -y install fbi
 
