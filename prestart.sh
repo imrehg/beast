@@ -1,8 +1,10 @@
 #!/bin/bash
 
+ROTATE=${ROTATE=0}
+
 if [ ! -c /dev/fb1 ]; then
   modprobe spi-bcm2708
-  modprobe fbtft_device name=pitft verbose=0 rotate=0
+  modprobe fbtft_device name=pitft verbose=0 rotate=${ROTATE}
 
   sleep 1
 
